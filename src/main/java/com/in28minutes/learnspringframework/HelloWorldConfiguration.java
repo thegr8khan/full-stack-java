@@ -27,7 +27,7 @@ public class HelloWorldConfiguration {
 
     @Bean
     public Person person() {
-        return new Person("Peter", 20, new Address("1st Street", "New York"));
+        return new Person("Peter", 20, new Address("1st Street", "Dallas"));
     }
 
     @Bean
@@ -35,8 +35,18 @@ public class HelloWorldConfiguration {
         return new Person(name(), age(), address()); //name, age
     }
 
+    @Bean
+    public Person person3Parameters(String name, int age, Address address3) { //name, age, address2
+        return new Person(name, age, address3); //name, age
+    }
+
     @Bean(name =  "address2")
     public Address address() {
         return new Address("Main Street", "New York");
+    }
+
+    @Bean(name =  "address3")
+    public Address address3() {
+        return new Address("Negra Arroyo", "New Mexico");
     }
 }
